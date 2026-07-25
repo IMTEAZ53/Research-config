@@ -1,0 +1,16 @@
+import numpy as np
+import pandas as pd
+
+np.random.seed(42)
+n_samples = 1000
+
+salinity_v = np.random.uniform(0, 5, n_samples)
+waterlevel_v = np.random.uniform(0, 5, n_samples)
+temp_v = np.random.uniform(0, 5, n_samples)
+
+y = np.where((waterlevel_v > 3.5) | ((salinity_v > 3.0) & (temp_v > 2.5)), 1, 0)
+
+X = np.column_stack((salinity_v, waterlevel_v, temp_v))
+
+print("Sample inputs (Salinity, Waterlevel, Temperature):\n", X[:3])
+print("Sample outputs (0=sleep, 1=wake up):\n", y[:3])
