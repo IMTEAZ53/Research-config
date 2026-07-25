@@ -1,0 +1,20 @@
+
+weights_hidden = mlp.coefs_[0]     # (3 inputs, 3 hidden neurons)
+biases_hidden = mlp.intercepts_[0] # (3 hidden neurons,)
+
+# Output Layer-এর Weights & Biases
+weights_output = mlp.coefs_[1]     # (3 hidden neurons, 1 output neuron)
+biases_output = mlp.intercepts_[1] # (1 output neuron,)
+
+print("=== HIDDEN LAYER WEIGHTS & BIASES ===")
+for i in range(3):
+    print(f"\nHidden Neuron {i+1}:")
+    print(f"  w1 (Salinity)    = {weights_hidden[0][i]:.4f}")
+    print(f"  w2 (Water Level) = {weights_hidden[1][i]:.4f}")
+    print(f"  w3 (Temperature) = {weights_hidden[2][i]:.4f}")
+    print(f"  Bias (b)         = {biases_hidden[i]:.4f}")
+
+print("\n=== OUTPUT LAYER WEIGHTS & BIASES ===")
+for i in range(3):
+    print(f"  Weight from Hidden Neuron {i+1} = {weights_output[i][0]:.4f}")
+print(f"  Output Bias                      = {biases_output[0]:.4f}")
